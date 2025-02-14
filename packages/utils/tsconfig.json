@@ -1,0 +1,4 @@
+{
+  "extends": "@nimble-ui/config/tsconfig.base.json",
+  "include": ["src"]
+}

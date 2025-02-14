@@ -1,0 +1,33 @@
+{
+  "name": "nimble-ui",
+  "packageManager": "pnpm@9.5.0",
+  "description": "Nimble UI monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=18.19.0",
+    "pnpm": ">=8.13.1"
+  },
+  "workspaces": [
+    "./packages/*"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "prettier": {
+    "bracketSpacing": false,
+    "singleQuote": true,
+    "useTabs": false,
+    "semi": true
+  },
+  "devDependencies": {
+    "turbo": "^2.4.2"
+  },
+  "dependencies": {
+    "@nimble-ui/config": "workspace:^",
+    "@nimble-ui/lint-config": "workspace:^",
+    "typescript": "^5.7.3"
+  }
+}

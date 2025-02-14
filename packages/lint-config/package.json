@@ -1,0 +1,22 @@
+{
+  "name": "@nimble-ui/lint-config",
+  "version": "1.0.0",
+  "description": "ESLint configuration for Nimble UI",
+  "author": "Chen Yu Yun",
+  "license": "MIT",
+  "main": "./index.mjs",
+  "type": "module",
+  "peerDependencies": {
+    "eslint": "^9.20.1"
+  },
+  "devDependencies": {
+    "eslint": "^9.20.1",
+    "typescript-eslint": "^8.18.0",
+    "eslint-plugin-vue": "^9.32.0",
+    "@eslint/js": "^9.16.0",
+    "globals": "^15.15.0",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.1.0"
+  }
+}
