@@ -48,7 +48,7 @@ export function defineRollupConfig(
     OutputFormat,
     NormalizedOutputOptions,
   ][];
-  console.log(values);
+
   return configOptions.input.flatMap(
     ({name, path, globalVariableName}): RollupOptions[] => {
       return values.flatMap(([format, options]) => {
