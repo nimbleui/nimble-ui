@@ -4,7 +4,17 @@
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**"],
-      "inputs": []
+      "inputs": [
+        "packages/**/src/**",
+        "packages/**/package.json",
+        "packages/**/tsconfig.json",
+        "packages/**/rollup.config.mjs",
+        "packages/**/vite.config.ts"
+      ]
+    },
+    "build:api": {},
+    "clean": {
+      "cache": false
     }
   }
 }

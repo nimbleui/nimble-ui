@@ -1,3 +1,3 @@
-import {reactConfig} from '@nimble-ui/lint-config';
+import {vueConfig} from '@nimble-ui/lint-config';
 
-export default reactConfig;
+export default vueConfig;

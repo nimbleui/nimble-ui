@@ -1,2 +1,2 @@
-export * from "./type";
-export * from "./isFunctionOrValue";
+export * from './type';
+export * from './isFunctionOrValue';

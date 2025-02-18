@@ -1,6 +1,8 @@
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import pluginVue from 'eslint-plugin-vue';
+import globals from 'globals';
+import prettierRecommended from 'eslint-plugin-prettier/recommended';
 
 export default tseslint.config(
   {
@@ -32,6 +34,8 @@ export default tseslint.config(
   {
     rules: {
       'no-debugger': 'warn', // 禁止使用 debugger 语句
+      '@typescript-eslint/no-explicit-any': 'off',
     },
-  }
+  },
+  prettierRecommended,
 );

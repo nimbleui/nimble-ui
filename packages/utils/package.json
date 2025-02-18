@@ -1,11 +1,19 @@
 {
   "name": "@nimble-ui/utils",
   "version": "1.0.0",
-  "description": "Utilities for Floating UI",
+  "description": "Utilities for Nimble UI",
   "main": "./dist/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "publishConfig": {
+    "access": "public"
   },
-  "author": "",
-  "license": "MIT"
+  "files": ["dist", "README.md"],
+  "scripts": {
+    "dev": "rollup -c -w",
+    "build": "rollup -c"
+  },
+  "author": "Chen Yu Yun",
+  "license": "MIT",
+  "devDependencies": {
+    "@nimble-ui/config": "workspace:^"
+  }
 }

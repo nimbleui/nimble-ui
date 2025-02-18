@@ -2,11 +2,16 @@
   "name": "@nimble-ui/config",
   "version": "1.0.0",
   "private": true,
-  "description": "",
-  "main": "index.js",
+  "type": "module",
+  "description": "Configuration for Nimble UI",
+  "author": "Chen Yu Yun",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc -b",
+    "clean": "rimraf dist",
+    "postinstall": "pnpm run build"
   },
-  "author": "",
+  "main": "./dist/src/index.mjs",
+  "module": "./dist/src/index.mjs",
+  "types": "./dist/src/index.d.d.mts",
   "license": "MIT"
 }
