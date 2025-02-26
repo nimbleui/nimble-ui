@@ -4,12 +4,12 @@
   "description": "Move component for Nimble UI",
   "main": "./index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@nimble-ui/utils": "workspace:^"
+    "@nimble-ui/utils": "workspace:^",
+    "@nimble-ui/config": "workspace:^"
   }
 }

@@ -1,1 +1,3 @@
-import { isFunctionOrValue } from "@nimble-ui/utils";
+import {move} from './move';
+export * from './types';
+export default move;

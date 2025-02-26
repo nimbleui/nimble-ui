@@ -9,7 +9,7 @@ export default defineRollupConfig({
     },
   ],
   globals: {
-    '@nimble-ui/utils': 'NimbleUIUtilsDOM',
+    '@nimble-ui/utils': 'NimbleUIUtils',
   },
   outputs: {cjs: false, browser: false},
 });

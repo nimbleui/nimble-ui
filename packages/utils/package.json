@@ -9,7 +9,9 @@
   "files": ["dist", "README.md"],
   "scripts": {
     "dev": "rollup -c -w",
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "clean": "rimraf dist && rimraf .turbo",
+    "test": "vitest run"
   },
   "author": "Chen Yu Yun",
   "license": "MIT",

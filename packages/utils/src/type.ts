@@ -31,3 +31,7 @@ export function isDefined(val: unknown): boolean {
 export function isObject(val: unknown): val is Record<string, any> {
   return val !== null && typeof val === 'object';
 }
+
+export function isArray(val: unknown): val is Array<any> {
+  return _toString.call(val) === '[object Array]';
+}

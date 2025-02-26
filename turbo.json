@@ -12,6 +12,10 @@
         "packages/**/vite.config.ts"
       ]
     },
+    "test": {
+      "dependsOn": ["@nimble-ui/config#build"],
+      "cache": false
+    },
     "build:api": {},
     "clean": {
       "cache": false
