@@ -12,6 +12,6 @@
   },
   "main": "./dist/src/index.mjs",
   "module": "./dist/src/index.mjs",
-  "types": "./dist/src/index.d.d.mts",
+  "types": "./dist/src/index.d.mts",
   "license": "MIT"
 }

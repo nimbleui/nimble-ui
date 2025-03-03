@@ -1,7 +1,8 @@
 {
   "extends": "@nimble-ui/config/tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "out-tsc"
+    "composite": false
   },
-  "include": ["src"]
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
 }

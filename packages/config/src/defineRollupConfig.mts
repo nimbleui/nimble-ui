@@ -6,6 +6,9 @@ import type {
 } from 'rollup';
 import {normalizeOutputOptions} from './normalizeOutputOptions.mjs';
 import {commonPlugins} from './commonPlugins.mjs';
+import dtsPlugin from 'rollup-plugin-dts';
+import {rootDir} from './constant.mjs';
+import path from 'path';
 
 interface InputType {
   name: string;
@@ -41,6 +44,7 @@ export interface RollupConfigOptions {
 
 export function defineRollupConfig(
   configOptions: RollupConfigOptions,
+  dts: boolean = true,
 ): RollupOptions[] {
   const outputOptions = normalizeOutputOptions(configOptions);
 
@@ -49,7 +53,7 @@ export function defineRollupConfig(
     NormalizedOutputOptions,
   ][];
 
-  return configOptions.input.flatMap(
+  const configs = configOptions.input.flatMap(
     ({name, path, globalVariableName}): RollupOptions[] => {
       return values.flatMap(([format, options]) => {
         if (options.skip) return [] as RollupOptions[];
@@ -80,4 +84,23 @@ export function defineRollupConfig(
       });
     },
   );
+
+  if (dts) {
+    configOptions.input.forEach((item) => {
+      configs.push({
+        input: item.path,
+        output: {
+          file: `./dist/${item.name}.d.ts`,
+          format: 'es',
+        },
+        plugins: [
+          dtsPlugin({
+            tsconfig: path.resolve(rootDir, './utils/tsconfig.lib.json'),
+          }),
+        ],
+      });
+    });
+  }
+
+  return configs;
 }
