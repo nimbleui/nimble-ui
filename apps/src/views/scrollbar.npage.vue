@@ -27,8 +27,10 @@ setTimeout(() => {
 const warpRef = ref<HTMLElement>();
 const getEl = () => warpRef.value;
 const {on} = moveEvent(getEl);
-on('down', (data) => {
+on('down', async (data) => {
   console.log('down', data);
+
+  return {a: 111};
 });
 </script>
 

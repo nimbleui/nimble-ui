@@ -10,15 +10,15 @@ export interface MoveBaseOptions {
 
 export type MoveMouseTouchEvent = MouseEvent | TouchEvent;
 
-export type MoveEventCallbackParam = MoveDataTypes & {
+export type MoveEvent = MoveDataTypes & {
   e: MoveMouseTouchEvent;
   value: MoveCallbackReturnValue;
 };
 
 export interface MoveOptionsType extends MoveBaseOptions {
-  down?: (data: MoveEventCallbackParam, setValue: (data: any) => void) => void;
-  move?: (data: MoveEventCallbackParam, setValue: (data: any) => void) => void;
-  up?: (data: MoveEventCallbackParam, setValue: (data: any) => void) => void;
+  down?: (data: MoveEvent, setValue: (data: any) => void) => void;
+  move?: (data: MoveEvent, setValue: (data: any) => void) => void;
+  up?: (data: MoveEvent, setValue: (data: any) => void) => void;
   agencyTarget?: (el: Element) => Element | undefined | false | void; // 判断是否要代理
   changeTarget?: (el: Element, e: MoveMouseTouchEvent) => Element; // 改变目标元素
   init?: (el: Element) => void; // 绑定按下事件时执行
@@ -51,6 +51,6 @@ export interface GlobalData {
   options?: MoveOptionsType; // 参数options
   upFun?(e: MoveMouseTouchEvent): void; // 元素绑定松开鼠标事件的回调函数
   moveFun?(e: MoveMouseTouchEvent): void; // 元素绑定移动鼠标事件的回调函数
-  callback: (type: MoveEventType) => void;
+  callback: (type: MoveEventType, e: MoveMouseTouchEvent) => void;
   limitInfo: MoveLimitInfoType | null;
 }

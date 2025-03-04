@@ -1,10 +1,10 @@
-import {events, isFunctionOrValue} from '@nimble-ui/utils';
+import {events, isFunctionOrValue, isPromise} from '@nimble-ui/utils';
 import type {
   MoveElType,
   MoveOptionsType,
   GlobalData,
   MoveEventType,
-  MoveDataTypes,
+  MoveEvent,
 } from './types';
 import mousedown from './mousedown';
 
@@ -24,7 +24,7 @@ const defaultData = {
 export function moveEvent(el: MoveElType, options?: MoveOptionsType) {
   // 创建事件对象
   const eventList = new Map();
-  const instEvent = events<{[key in MoveEventType]: MoveDataTypes}>(eventList);
+  const {on, emit} = events<{[key in MoveEventType]: MoveEvent}>(eventList);
 
   const globalData = {
     el,
@@ -32,14 +32,15 @@ export function moveEvent(el: MoveElType, options?: MoveOptionsType) {
     _scale: 1,
     isDown: false,
     data: {...defaultData},
-    callback(type) {
-      instEvent.emit(type, {...globalData.data});
+    callback(type, e) {
+      const result = emit(type, {...this.data, e, value: {}});
+      console.log(result);
     },
   } as GlobalData;
 
   const observe = new MutationObserver(() => {
-    const _el = isFunctionOrValue(el) as HTMLElement | undefined | null;
-    const fun = mousedown.bind(globalData);
+    const _el = isFunctionOrValue(el);
+    const fun = mousedown.bind(globalData) as any;
 
     if (!_el) return;
     options?.init?.(_el);
@@ -52,6 +53,5 @@ export function moveEvent(el: MoveElType, options?: MoveOptionsType) {
   });
 
   observe.observe(document, {childList: true, subtree: true});
-
-  return {on: instEvent.on};
+  return {on};
 }

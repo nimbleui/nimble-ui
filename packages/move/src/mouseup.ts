@@ -2,7 +2,7 @@ import {GlobalData, MoveMouseTouchEvent} from '.';
 import {numScale} from './utils';
 
 export default function mouseup(this: GlobalData, e: MoveMouseTouchEvent) {
-  const {isDown, options = {}, _scale, data, callback} = this;
+  const {isDown, options = {}, _scale, data} = this;
   if (!isDown) return;
   this.isDown = false;
 
@@ -12,7 +12,7 @@ export default function mouseup(this: GlobalData, e: MoveMouseTouchEvent) {
   const {clientX, clientY} = numScale(e, _scale);
   Object.assign(data, {endX: clientX, endY: clientY});
   this.limitInfo = null;
-  callback('up');
+  this.callback('up', e);
 
   // 解绑事件
   const {moveFun, upFun} = this;

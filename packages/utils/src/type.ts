@@ -35,3 +35,7 @@ export function isObject(val: unknown): val is Record<string, any> {
 export function isArray(val: unknown): val is Array<any> {
   return _toString.call(val) === '[object Array]';
 }
+
+export function isPromise(val: unknown): val is Promise<any> {
+  return _toString.call(val) === '[object Promise]';
+}

@@ -5,10 +5,10 @@ import mouseup from './mouseup';
 import {numScale, getTarget, sunBoundaryValue} from './utils';
 
 export default function mousedown(this: GlobalData, e: MoveMouseTouchEvent) {
-  const {_el, options = {}, callback} = this;
+  const options = this.options || {};
   this.isDown = true;
   // 判断是否有代理元素
-  const target = getTarget(e.target, _el, options.agencyTarget);
+  const target = getTarget(e.target, this._el, options.agencyTarget);
   if (!target) return;
   // 记录目标元素
   this.data.target = options.changeTarget?.(target, e) ?? target;
@@ -35,5 +35,5 @@ export default function mousedown(this: GlobalData, e: MoveMouseTouchEvent) {
   if (options?.boundary) {
     this.limitInfo = sunBoundaryValue(target, options);
   }
-  callback('down');
+  this.callback('down', e);
 }

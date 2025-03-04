@@ -1,6 +1,8 @@
 export type EventType = string | symbol;
 
-export type Handler<T = unknown> = (event: T) => void;
+export type Handler<T = unknown> = (
+  event: T,
+) => Promise<Record<string, unknown>> | Record<string, unknown>;
 
 export type EventHandlerMap<Events extends Record<EventType, unknown>> = Map<
   keyof Events,
@@ -30,9 +32,7 @@ export function events<Events extends Record<EventType, unknown>>(
     emit<Key extends keyof Events>(type: Key, evt?: Events[Key]) {
       const handlers = all.get(type);
       if (handlers) {
-        handlers.forEach((handler) => {
-          handler(evt!);
-        });
+        return handlers.map((handler) => handler(evt!));
       }
     },
   };
