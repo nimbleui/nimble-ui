@@ -2,19 +2,49 @@
   "name": "@nimble-ui/utils",
   "version": "1.0.0",
   "description": "Utilities for Nimble UI",
-  "main": "./dist/index.js",
+  "main": "./dist/nimble-ui.utils.umd.js",
+  "module": "./dist/nimble-ui.utils.esm.js",
+  "types": "./dist/nimble-ui.utils.d.ts",
   "publishConfig": {
     "access": "public"
   },
   "files": ["dist", "README.md"],
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": {
+        "types": "./dist/nimble-ui.utils.d.ts",
+        "default": "./dist/nimble-ui.utils.mjs"
+      },
+      "types": "./dist/nimble-ui.utils.d.ts",
+      "module": "./dist/nimble-ui.utils.esm.js",
+      "default": "./dist/nimble-ui.utils.umd.js"
+    }
+  },
   "scripts": {
     "dev": "rollup -c -w",
     "build": "rollup -c",
     "clean": "rimraf dist && rimraf .turbo",
-    "test": "vitest run"
+    "test": "vitest run",
+    "publint": "turbo publint"
   },
   "author": "Chen Yu Yun",
   "license": "MIT",
+  "bugs": "https://github.com/nimbleui/nimble-ui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nimbleui-ui/nimble-ui.git",
+    "directory": "packages/utils"
+  },
+  "keywords": [
+    "nimble",
+    "nimble-ui",
+    "vue",
+    "react",
+    "vue3",
+    "low code",
+    "@nimble-ui/utils"
+  ],
   "devDependencies": {
     "@nimble-ui/config": "workspace:^"
   }

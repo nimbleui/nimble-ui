@@ -90,7 +90,7 @@ export function defineRollupConfig(
       configs.push({
         input: item.path,
         output: {
-          file: `./dist/${item.name}.d.ts`,
+          file: `./dist/nimble-ui.${item.name}.d.ts`,
           format: 'es',
         },
         plugins: [

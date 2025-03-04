@@ -16,8 +16,10 @@
       "dependsOn": ["@nimble-ui/config#build"],
       "cache": false
     },
-    "build:api": {},
     "clean": {
+      "cache": false
+    },
+    "dev": {
       "cache": false
     }
   }

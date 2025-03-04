@@ -1,3 +1,4 @@
-import {move} from './move';
+import {moveEvent} from './moveEvent';
 export * from './types';
-export default move;
+export * from './moveEvent';
+export default moveEvent;

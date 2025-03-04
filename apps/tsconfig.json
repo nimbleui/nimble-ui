@@ -1,0 +1,7 @@
+{
+  "extends": "@nimble-ui/config/tsconfig.base.json",
+  "include": ["src"],
+  "references": [
+    {"path": "../packages/move/tsconfig.json"}
+  ]
+}

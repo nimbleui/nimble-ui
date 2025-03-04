@@ -1,5 +1,5 @@
 import {isFunctionOrValue, isTouchEvent} from '@nimble-ui/utils';
-import {MoveElType, MoveMouseTouchEvent, MoveOptionsType} from './types';
+import {MoveMouseTouchEvent, MoveOptionsType} from './types';
 
 /**
  * 获取代理目标函数
@@ -9,16 +9,13 @@ import {MoveElType, MoveMouseTouchEvent, MoveOptionsType} from './types';
  * @returns
  */
 export const getTarget = (
-  e: MoveMouseTouchEvent,
-  el: MoveElType,
-  options?: MoveOptionsType,
+  target: EventTarget | null,
+  el: Element,
+  fun?: (el: Element) => any,
 ) => {
-  const target = e.target as HTMLElement;
-  const agencyTarget = options?.agencyTarget;
-  if (!agencyTarget) return isFunctionOrValue(el);
-  const t = agencyTarget ? agencyTarget(target) : target;
-  if (!t) return false;
-  return t;
+  const value = fun ? fun(target as Element) : el;
+  if (!value) return false;
+  return value;
 };
 
 /**
@@ -46,14 +43,9 @@ export function getXY(e: MoveMouseTouchEvent) {
  * @param options 参数
  * @returns
  */
-export const numScale = (e: MoveMouseTouchEvent, options?: MoveOptionsType) => {
+export const numScale = (e: MoveMouseTouchEvent, scale: number = 1) => {
   const {x, y} = getXY(e);
-  const scale = isFunctionOrValue(options?.scale) ?? 1;
-
-  return {
-    clientX: x / scale,
-    clientY: y / scale,
-  };
+  return {clientX: x / scale, clientY: y / scale};
 };
 
 /**

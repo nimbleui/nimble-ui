@@ -2,7 +2,6 @@
   "name": "@nimble-ui/move",
   "version": "1.0.0",
   "description": "Move component for Nimble UI",
-  "main": "./index.js",
   "scripts": {
   },
   "keywords": [],

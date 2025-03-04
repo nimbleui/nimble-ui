@@ -40,3 +40,17 @@ export interface MoveDataTypes {
 
 export type MoveLimitInfoType = {l: number; r: number; t: number; b: number};
 export type MoveCallbackReturnValue = {down?: any; move?: any; up?: any};
+
+export type MoveEventType = 'down' | 'move' | 'up';
+export interface GlobalData {
+  _el: Element; // el参数执行后的值
+  el: MoveElType; // 参数el
+  isDown: boolean; // 是否按下
+  _scale: number; // options中scale参数
+  data: MoveDataTypes; // 鼠标信息、位置等等信息
+  options?: MoveOptionsType; // 参数options
+  upFun?(e: MoveMouseTouchEvent): void; // 元素绑定松开鼠标事件的回调函数
+  moveFun?(e: MoveMouseTouchEvent): void; // 元素绑定移动鼠标事件的回调函数
+  callback: (type: MoveEventType) => void;
+  limitInfo: MoveLimitInfoType | null;
+}
