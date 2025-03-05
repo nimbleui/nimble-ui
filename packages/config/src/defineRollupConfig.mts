@@ -7,8 +7,6 @@ import type {
 import {normalizeOutputOptions} from './normalizeOutputOptions.mjs';
 import {commonPlugins} from './commonPlugins.mjs';
 import dtsPlugin from 'rollup-plugin-dts';
-import {rootDir} from './constant.mjs';
-import path from 'path';
 
 interface InputType {
   name: string;
@@ -95,7 +93,7 @@ export function defineRollupConfig(
         },
         plugins: [
           dtsPlugin({
-            tsconfig: path.resolve(rootDir, './utils/tsconfig.lib.json'),
+            tsconfig: './tsconfig.lib.json',
           }),
         ],
       });

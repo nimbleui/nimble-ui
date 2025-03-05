@@ -5,6 +5,7 @@
   "main": "./dist/nimble-ui.utils.umd.js",
   "module": "./dist/nimble-ui.utils.esm.js",
   "types": "./dist/nimble-ui.utils.d.ts",
+  "unpkg": "./dist/nimble-ui.utils.umd.min.js",
   "publishConfig": {
     "access": "public"
   },

@@ -10,9 +10,9 @@ export interface MoveBaseOptions {
 
 export type MoveMouseTouchEvent = MouseEvent | TouchEvent;
 
-export type MoveEvent = MoveDataTypes & {
+export type MoveEvent<T = any> = MoveDataTypes & {
   e: MoveMouseTouchEvent;
-  value: MoveCallbackReturnValue;
+  value: T;
 };
 
 export interface MoveOptionsType extends MoveBaseOptions {

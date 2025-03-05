@@ -2,13 +2,22 @@
   "name": "@nimble-ui/move",
   "version": "1.0.0",
   "description": "Move component for Nimble UI",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
+    "dev": "rollup -c -w",
+    "build": "rollup -c",
+    "clean": "rimraf dist && rimraf .turbo",
+    "test": "vitest run"
   },
   "keywords": [],
-  "author": "",
+  "author": "Chen Yu Yun",
   "license": "MIT",
   "dependencies": {
-    "@nimble-ui/utils": "workspace:^",
+    "@nimble-ui/utils": "workspace:^"
+  },
+  "devDependencies": {
     "@nimble-ui/config": "workspace:^"
   }
 }

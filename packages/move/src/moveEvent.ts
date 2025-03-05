@@ -1,4 +1,4 @@
-import {events, isFunctionOrValue, isPromise} from '@nimble-ui/utils';
+import {events, isFunctionOrValue} from '@nimble-ui/utils';
 import type {
   MoveElType,
   MoveOptionsType,
@@ -21,10 +21,22 @@ const defaultData = {
   target: undefined,
 };
 
-export function moveEvent(el: MoveElType, options?: MoveOptionsType) {
+export function moveEvent<Results extends {[key in MoveEventType]?: any}>(
+  el: MoveElType,
+  options?: MoveOptionsType,
+) {
   // 创建事件对象
   const eventList = new Map();
-  const {on, emit} = events<{[key in MoveEventType]: MoveEvent}>(eventList);
+  const {on, emit} = events<
+    {[key in MoveEventType]: MoveEvent<Results>},
+    Results
+  >(eventList);
+
+  const resultValue = {
+    up: {},
+    down: {},
+    move: {},
+  } as Results;
 
   const globalData = {
     el,
@@ -33,8 +45,11 @@ export function moveEvent(el: MoveElType, options?: MoveOptionsType) {
     isDown: false,
     data: {...defaultData},
     callback(type, e) {
-      const result = emit(type, {...this.data, e, value: {}});
-      console.log(result);
+      const result = emit(type, {...this.data, value: resultValue, e})?.filter(
+        Boolean,
+      );
+      if (!result) return;
+      result.forEach((item) => Object.assign(resultValue[type], item));
     },
   } as GlobalData;
 
