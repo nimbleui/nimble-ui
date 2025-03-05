@@ -20,7 +20,7 @@ describe('on and emit', () => {
   });
 
   test('on', () => {
-    const foo = () => {};
+    const foo = () => ({});
     inst.on('foo', foo);
 
     expect(inst.all.size).toBe(1);
