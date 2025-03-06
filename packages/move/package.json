@@ -2,8 +2,25 @@
   "name": "@nimble-ui/move",
   "version": "1.0.0",
   "description": "Move component for Nimble UI",
+  "main": "./dist/nimble-ui.move.umd.js",
+  "module": "./dist/nimble-ui.move.esm.js",
+  "types": "./dist/nimble-ui.move.d.ts",
+  "unpkg": "./dist/nimble-ui.move.umd.min.js",
   "publishConfig": {
     "access": "public"
+  },
+  "files": ["dist", "README.md"],
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": {
+        "types": "./dist/nimble-ui.move.d.ts",
+        "import": "./dist/nimble-ui.move.mjs"
+      },
+      "types": "./dist/nimble-ui.move.d.ts",
+      "module": "./dist/nimble-ui.move.esm.js",
+      "default": "./dist/nimble-ui.move.umd.js"
+    }
   },
   "scripts": {
     "dev": "rollup -c -w",
@@ -11,9 +28,23 @@
     "clean": "rimraf dist && rimraf .turbo",
     "test": "vitest run"
   },
-  "keywords": [],
+  "keywords": [
+    "nimble",
+    "nimble-ui",
+    "vue",
+    "react",
+    "vue3",
+    "low code",
+    "@nimble-ui/move"
+  ],
   "author": "Chen Yu Yun",
   "license": "MIT",
+  "bugs": "https://github.com/nimbleui/nimble-ui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nimbleui-ui/nimble-ui.git",
+    "directory": "packages/move"
+  },
   "dependencies": {
     "@nimble-ui/utils": "workspace:^"
   },

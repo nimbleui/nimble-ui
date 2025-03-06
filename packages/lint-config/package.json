@@ -1,6 +1,7 @@
 {
   "name": "@nimble-ui/lint-config",
   "version": "1.0.0",
+  "private": true,
   "description": "ESLint configuration for Nimble UI",
   "author": "Chen Yu Yun",
   "license": "MIT",

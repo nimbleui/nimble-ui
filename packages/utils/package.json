@@ -1,6 +1,6 @@
 {
   "name": "@nimble-ui/utils",
-  "version": "1.0.0",
+  "version": "0.0.5",
   "description": "Utilities for Nimble UI",
   "main": "./dist/nimble-ui.utils.umd.js",
   "module": "./dist/nimble-ui.utils.esm.js",

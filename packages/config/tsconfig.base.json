@@ -15,7 +15,10 @@
       "@nimble-ui/utils": ["../utils/src/index.ts"],
       "@nimble-ui/utils/*": ["../utils/src/*"],
       "@nimble-ui/lint-config": ["../lint-config"],
-      "@nimble-ui/move": ["../move/src/index.ts"]
+      "@nimble-ui/move": ["../move/src/index.ts"],
+      "@nimble-ui/scrollbar": ["../scrollbar/src/index.ts"],
+      "@nimble-ui/common": ["../common/src/index.ts"],
+      "@nimble-ui/common/*": ["../common/src/*"]
     }
   }
 }

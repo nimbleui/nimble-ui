@@ -1,0 +1,14 @@
+{
+  "name": "@nimble-ui/common",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Common for Nimble UI",
+  "author": "Chen Yu Yun",
+  "scripts": {},
+  "main": "./src/index.ts",
+  "license": "MIT",
+  "devDependencies": {
+    "@nimble-ui/config": "workspace:^"
+  }
+}
